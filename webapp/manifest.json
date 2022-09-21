@@ -20,10 +20,7 @@
         "uri": "/sap/opu/odata/sap/ZPTP_SB_UI_IDOC_MONITOR/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "ZPTP_SB_UI_IDOC_MONITOR_VAN",
-            "annotation"
-          ],
+          "annotations": ["ZPTP_SB_UI_IDOC_MONITOR_VAN", "annotation"],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -109,6 +106,15 @@
       "config": {},
       "routes": [],
       "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "oup.ptp.idocmon.idocerrormonitoring.ext.controller.ListReportExt"
+          }
+        }
+      }
     }
   },
   "sap.ui.generic.app": {
@@ -133,6 +139,9 @@
               "dateSettings": {
                 "useDateRange": true
               }
+            },
+            "tableSettings": {
+              "type": "ResponsiveTable"
             }
           }
         },

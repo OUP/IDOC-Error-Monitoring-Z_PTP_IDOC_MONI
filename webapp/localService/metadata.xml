@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zptp_sd_ui_idoc_monitor" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZPTP_C_IDOC_MONITORType" sap:label="Consumption view for ZPTP_I_IDOC_MONITOR" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IDocNumber"/>
+                    <PropertyRef Name="SegmentNo"/>
+                    <PropertyRef Name="IDocCreationDate"/>
+                    <PropertyRef Name="IDocStatus"/>
+                    <PropertyRef Name="DirectionForIDoc"/>
+                    <PropertyRef Name="LogicalMessage"/>
+                    <PropertyRef Name="PartnerNumber"/>
+                    <PropertyRef Name="DateCreated"/>
+                    <PropertyRef Name="ErrorMsg"/>
+                </Key>
+                <Property Name="IDocNumber" Type="Edm.String" Nullable="false" MaxLength="16" sap:display-format="NonNegative" sap:label="IDoc number"/>
+                <Property Name="SegmentNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Segment No." sap:quickinfo="Number of SAP segment"/>
+                <Property Name="IDocCreationDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="IDoc Created On"/>
+                <Property Name="IDocStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="IDoc Status" sap:quickinfo="Status of IDoc"/>
+                <Property Name="DirectionForIDoc" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Direction" sap:quickinfo="Direction for IDoc"/>
+                <Property Name="LogicalMessage" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Message Type"/>
+                <Property Name="PartnerNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Receiver Partner No." sap:quickinfo="Partner Number of Receiver"/>
+                <Property Name="DateCreated" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Date status created" sap:quickinfo="Date status record was created"/>
+                <Property Name="ErrorMsg" Type="Edm.String" Nullable="false" MaxLength="274"/>
+                <Property Name="Delivery" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StorageLoc" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MovType" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EntryQuan" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PoNumber" Type="Edm.String" MaxLength="255" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="cds_zptp_sd_ui_idoc_monitor_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPTP_C_IDOC_MONITOR" EntityType="cds_zptp_sd_ui_idoc_monitor.ZPTP_C_IDOC_MONITORType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="cds_zptp_sd_ui_idoc_monitor.cds_zptp_sd_ui_idoc_monitor_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zptp_sd_ui_idoc_monitor.cds_zptp_sd_ui_idoc_monitor_Entities/ZPTP_C_IDOC_MONITOR" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Delivery</PropertyPath>
+                                <PropertyPath>Material</PropertyPath>
+                                <PropertyPath>Plant</PropertyPath>
+                                <PropertyPath>StorageLoc</PropertyPath>
+                                <PropertyPath>MovType</PropertyPath>
+                                <PropertyPath>EntryQuan</PropertyPath>
+                                <PropertyPath>PoNumber</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Delivery</PropertyPath>
+                                <PropertyPath>Material</PropertyPath>
+                                <PropertyPath>Plant</PropertyPath>
+                                <PropertyPath>StorageLoc</PropertyPath>
+                                <PropertyPath>MovType</PropertyPath>
+                                <PropertyPath>EntryQuan</PropertyPath>
+                                <PropertyPath>PoNumber</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPTP_SB_UI_IDOC_MONITOR/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPTP_SB_UI_IDOC_MONITOR/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
